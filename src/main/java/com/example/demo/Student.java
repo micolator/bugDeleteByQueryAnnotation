@@ -5,18 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Tbl {
+public class Student {
 
 	@Id
 	private String id;
 
+	private String firstName;
+
 	private Date date;
 
-	public Tbl() {
+	public Student() {
 	}
 
-	public Tbl(final String id, final Date date) {
+	public Student(final String id, final String firstName, final Date date) {
 		this.id = id;
+		this.firstName = firstName;
 		this.date = date;
 	}
 
@@ -24,13 +27,18 @@ public class Tbl {
 		return id;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
 	public Date getDate() {
 		return date;
 	}
 
 	@Override public String toString() {
-		return "Tbl{" +
+		return "Student{" +
 				"id='" + id + '\'' +
+				", firstName='" + firstName + '\'' +
 				", date=" + date +
 				'}';
 	}

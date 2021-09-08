@@ -9,9 +9,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TblRepository extends JpaRepository<Tbl, String> {
+public interface StudentRepository extends JpaRepository<Student, String> {
 
 	@Modifying
-	@Query("delete from Tbl where date < :date")
-	int purge(@Param("date") Date date);
+	@Query("delete from Student where date < :date")
+	int delete(@Param("date") Date date);
+
+	int deleteAllByDateLessThan(Date date);
 }
